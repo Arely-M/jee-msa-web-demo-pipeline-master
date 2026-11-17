@@ -86,7 +86,7 @@ stages:
             displayName: 'Publicar Cobertura en Azure DevOps'
   
   # ==========================================
-  # STAGE 2: SEGURIDAD (SECURITY)
+  # STAGE 2: Calidad (Quality)
   # ==========================================
   - stage: Code_Quality
     displayName: 'Code Quality'
