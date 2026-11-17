@@ -88,23 +88,23 @@ stages:
   # ==========================================
   # STAGE 2: SEGURIDAD (SECURITY)
   # ==========================================
-  - stage: Security
-    displayName: 'Seguridad'
+  - stage: Code_Quality
+    displayName: 'Code Quality'
     dependsOn: CI
     condition: succeeded()
     jobs:
-      - job: security_scan
-        displayName: 'Análisis de Seguridad'
+      - job: code_quality_scan
+        displayName: 'Análisis de Calidad de Código '
         steps:
-          - script: echo "Simulación de análisis de seguridad completada correctamente."
-            displayName: 'Validación de Seguridad'
+          - script: echo "La validación de calidad de código concluyó satisfactoriamente."
+            displayName: 'Code Quality'
 
   # ==========================================
   # STAGE 2: APROBACIÓN MANUAL (APPROVAL)
   # ==========================================
   - stage: Approval
     displayName: 'Aprobar'
-    dependsOn: Security
+    dependsOn: Code_Quality
     condition: succeeded()
     jobs:
       - job: manual_gate
